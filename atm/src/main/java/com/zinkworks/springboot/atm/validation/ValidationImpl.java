@@ -35,14 +35,11 @@ public class ValidationImpl implements Validation {
 		return user.isEmpty();
 	}
 
-	public void validateAmount(int amount) {
-		if (amount % 5 != 0 && amount == 0)
-			throw new CommonException("Entered amount: " + amount+" is invalid. Enter amount in multiples of 5");
-
-	}
 
 	public void validateAmount(Map<Integer, Integer> currentDenominations, int amount) {
 		int currentBalance = atmHelper.calculateTotalAmt(currentDenominations);
+		if (amount % 5 != 0 || amount == 0)
+			throw new CommonException("Entered amount: " + amount+" is invalid. Enter amount in multiples of 5");
 		if(amount > currentBalance)
 			throw new CommonException("Please enter an amount less than: " + currentBalance);
 	}

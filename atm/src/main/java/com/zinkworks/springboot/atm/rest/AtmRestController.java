@@ -49,7 +49,7 @@ public class AtmRestController {
 	}
 	
 	@PostMapping("/withdraw/{atmId}")
-	public Atms psotWithdraw(@RequestBody Users user, @PathVariable int atmId) {
+	public Atms postWithdraw(@RequestBody Users user, @PathVariable int atmId) {
 		String account = user.getAccountNumber();
 		int pin = user.getPin();
 		int amount = user.getAmount();
