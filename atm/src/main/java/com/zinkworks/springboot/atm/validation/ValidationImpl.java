@@ -36,7 +36,7 @@ public class ValidationImpl implements Validation {
 	}
 
 	public void validateAmount(int amount) {
-		if (amount % 5 != 0)
+		if (amount % 5 != 0 && amount == 0)
 			throw new CommonException("Entered amount: " + amount+" is invalid. Enter amount in multiples of 5");
 
 	}
